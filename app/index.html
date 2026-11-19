@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice &amp; Virtue — GTA VI Trophy Field Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="brand">
+    <span class="mark" aria-hidden="true">V&amp;V</span>
+    <div>
+      <h1>Vice &amp; Virtue</h1>
+      <p class="subtitle">GTA VI Trophy Field Guide · PlayStation 5 · 55 trophies · offline</p>
+    </div>
+  </div>
+  <div class="progress" id="progress" aria-live="polite">
+    <div class="progress-text"><strong id="progress-count">0/55</strong><span id="progress-label">earned · 0% to platinum</span></div>
+    <div class="bar"><div class="fill" id="progress-fill" style="width:0%"></div></div>
+    <p class="progress-sub" id="progress-sub">Platinum: Vice Got a Price! — earn the other 54.</p>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab active" data-tab="guide" id="tab-guide">Guide &amp; tracker</button>
+    <button type="button" class="tab" data-tab="roadmap" id="tab-roadmap">Platinum roadmap</button>
+    <button type="button" class="tab" data-tab="sources" id="tab-sources">Sources &amp; about</button>
+  </nav>
+</header>
+
+<main>
+  <section id="view-guide" class="view">
+    <div class="controls" role="search">
+      <div class="filters" id="filters" aria-label="Filter trophies">
+        <button type="button" class="filter active" data-filter="all">All 55</button>
+        <button type="button" class="filter" data-filter="story">Story</button>
+        <button type="button" class="filter" data-filter="missable">Missable</button>
+        <button type="button" class="filter" data-filter="collectible">Collectibles</button>
+        <button type="button" class="filter" data-filter="activity">Activities</button>
+        <button type="button" class="filter" data-filter="online">Online</button>
+      </div>
+      <input id="search" type="search" placeholder="Search trophy, mission, place…" aria-label="Search trophies">
+      <label class="spoiler"><input id="spoiler" type="checkbox"> Spoiler-free story</label>
+      <button type="button" id="export" class="btn">Export progress</button>
+      <label class="btn import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+    </div>
+    <p class="roadmap-strip" id="roadmap-strip" aria-label="Roadmap at a glance"></p>
+    <div class="grid">
+      <div class="list" id="list" aria-label="Trophy list"></div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view hidden">
+    <h2>The road to platinum</h2>
+    <p class="lede">About 200 hours, difficulty 4/10, one playthrough, no online trophies. The plan below follows PowerPyx's roadmap; every step cites its source.</p>
+    <div id="roadmap-phases"></div>
+    <h3>Missable trophies</h3>
+    <p id="missable-summary"></p>
+    <div id="missable-list"></div>
+  </section>
+
+  <section id="view-sources" class="view hidden">
+    <h2>Sources &amp; about</h2>
+    <p class="lede">Every guide in this app is written in our own words. Each one cites where its facts come from — a source is cited, never copied. The official trophy names and descriptions are shown as PlayStation publishes them.</p>
+    <h3>Sources</h3>
+    <ol id="source-list" class="sources"></ol>
+    <h3>How this guide was built</h3>
+    <ul class="notes">
+      <li>The game released 19 November 2026. The trophy list is the official 55 as published on PlayStation Network, via Exophase &amp; PSNProfiles; the counts (42 shooting-range challenges, 14 drone-race locations, 18 meditation spots) come from the same list.</li>
+      <li>Five trophies had no confirmed unlock method at launch — In The Beginning…, Capital Offense, Personal Best, Bad Luck, I Guess, The Truth Is Out There and Ten Pin. Their guides say so plainly instead of inventing a method.</li>
+      <li>Only one trophy is flagged possibly missable: Positive Mental Attitude, whose first meditation spot is offered in Chapter 1 and never again. Everything else is earnable in free-roam after the story.</li>
+      <li>There is no mission replay and no New Game Plus, so the roadmap tells you to keep a manual save at the start of every chapter and one before the final mission.</li>
+      <li>Your progress never leaves this browser: it is saved in localStorage, and export/import moves it as a file you own.</li>
+    </ul>
+    <p class="fineprint">Unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork or game screenshot is used anywhere in this app.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Vice &amp; Virtue — an unofficial fan guide · progress stays in your browser · 55 trophies, 1 platinum</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

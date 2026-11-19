@@ -1,0 +1,192 @@
+/* Vice & Virtue — GTA VI Trophy Field Guide. Original dark "Vice" theme:
+   deep ink navy, sunset coral for the platinum path, teal for earned. */
+:root {
+  --ink: #0e1622;
+  --panel: #16222f;
+  --panel-2: #1b2a3a;
+  --line: #2a3c50;
+  --text: #e8eef4;
+  --muted: #9fb0c0;
+  --coral: #ff7a59;
+  --amber: #ffb454;
+  --teal: #3ec6a7;
+  --gold: #ffd166;
+  --silver: #c7d2de;
+  --bronze: #e0a071;
+  --platinum: #bfe6ff;
+  --danger: #ff5d73;
+}
+* { box-sizing: border-box; }
+html { color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.hidden { display: none !important; }
+
+/* Masthead */
+.masthead {
+  padding: 18px 22px 0;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #13202f, var(--ink));
+}
+.brand { display: flex; gap: 14px; align-items: center; }
+.mark {
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--coral), var(--amber));
+  color: #23120a; font-weight: 800; font-size: 20px; letter-spacing: -1px;
+}
+h1 { margin: 0; font-size: 26px; letter-spacing: -0.5px; }
+.subtitle { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.progress { max-width: 560px; margin: 14px 0 4px; }
+.progress-text { display: flex; gap: 10px; align-items: baseline; }
+.progress-text strong { font-size: 20px; color: var(--amber); }
+.progress-label { color: var(--muted); font-size: 13px; }
+.bar { height: 8px; border-radius: 99px; background: var(--panel-2); overflow: hidden; margin-top: 6px; }
+.fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--coral), var(--amber)); transition: width 0.3s; }
+.progress-sub { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+.tabs { display: flex; gap: 8px; margin-top: 14px; }
+.tab {
+  border: 1px solid var(--line); background: transparent; color: var(--muted);
+  padding: 8px 16px; border-radius: 10px 10px 0 0; border-bottom: none;
+  font: inherit; cursor: pointer;
+}
+.tab.active { background: var(--panel); color: var(--text); font-weight: 600; }
+.tab:hover { color: var(--text); }
+
+main { padding: 18px 22px 8px; max-width: 1240px; margin: 0 auto; }
+h2 { font-size: 22px; margin: 4px 0 8px; }
+h3 { font-size: 16px; margin: 22px 0 8px; color: var(--amber); }
+.lede { color: var(--muted); max-width: 72ch; }
+
+/* Controls */
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+}
+.filters { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter {
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+  padding: 6px 12px; border-radius: 99px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.filter.active { background: var(--coral); border-color: var(--coral); color: #23120a; font-weight: 700; }
+#search {
+  flex: 1 1 200px; min-width: 180px; padding: 8px 12px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--ink); color: var(--text); font: inherit;
+}
+.spoiler { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; cursor: pointer; }
+.btn {
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+  padding: 8px 14px; border-radius: 8px; font: inherit; font-size: 13px; cursor: pointer;
+}
+.btn:hover { border-color: var(--coral); }
+.import input { display: none; }
+.roadmap-strip {
+  margin: 12px 2px; color: var(--muted); font-size: 13px;
+}
+.roadmap-strip b { color: var(--amber); }
+
+/* Two-column guide */
+.grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 16px; align-items: start; }
+.list { display: flex; flex-direction: column; gap: 14px; }
+.group-title {
+  margin: 2px 0 0; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
+}
+.group-title span { color: var(--text); }
+.trophy {
+  display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: start;
+  padding: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  cursor: pointer; text-align: left; font: inherit; color: var(--text); width: 100%;
+}
+.trophy:hover { border-color: var(--coral); }
+.trophy.selected { border-color: var(--amber); box-shadow: 0 0 0 1px var(--amber); }
+.trophy.earned { opacity: 0.75; }
+.trophy input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--teal); cursor: pointer; }
+.trophy-name { font-weight: 650; font-size: 15px; }
+.trophy-name.earned-name { text-decoration: line-through; text-decoration-color: var(--teal); }
+.trophy-desc { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.trophy-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; }
+.badge {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 99px; white-space: nowrap;
+}
+.badge.platinum { background: var(--platinum); color: #12324a; }
+.badge.gold { background: var(--gold); color: #4a3200; }
+.badge.silver { background: var(--silver); color: #26313d; }
+.badge.bronze { background: var(--bronze); color: #40220a; }
+.tag {
+  font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 99px;
+  border: 1px solid var(--line); color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px;
+}
+.tag.missable { border-color: var(--danger); color: var(--danger); }
+.tag.hidden-tag { border-color: var(--amber); color: var(--amber); }
+.tag.unconfirmed { border-color: var(--amber); color: var(--amber); }
+.empty { padding: 24px; text-align: center; color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 12px; }
+
+/* Detail panel */
+.detail {
+  position: sticky; top: 12px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px;
+}
+.detail h2 { font-size: 20px; margin: 8px 0 2px; }
+.detail .official { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+.detail .official b { color: var(--text); font-weight: 600; }
+.detail p { margin: 8px 0; }
+.detail .guide-label, .detail .sources-label {
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin: 16px 0 4px;
+}
+.missable-note {
+  border: 1px solid var(--danger); background: rgba(255, 93, 115, 0.08);
+  border-radius: 10px; padding: 10px 12px; font-size: 13px; margin: 12px 0;
+}
+.missable-note b { color: var(--danger); }
+.unconfirmed-note {
+  border: 1px solid var(--amber); background: rgba(255, 180, 84, 0.08);
+  border-radius: 10px; padding: 10px 12px; font-size: 13px; margin: 12px 0;
+}
+.unconfirmed-note b { color: var(--amber); }
+.source-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 0; }
+.source-chip {
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+  font-size: 12px; padding: 3px 9px; border-radius: 99px; text-decoration: none;
+}
+.source-chip:hover { border-color: var(--coral); }
+.mark-btn {
+  margin-top: 16px; width: 100%; padding: 10px; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--teal); background: var(--teal); color: #06231c; font: inherit; font-weight: 700;
+}
+.mark-btn.earned { background: transparent; color: var(--teal); }
+.phase-line { color: var(--muted); font-size: 13px; }
+.phase-line b { color: var(--amber); }
+
+/* Roadmap */
+.phase {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  padding: 16px 18px; margin: 12px 0;
+}
+.phase h3 { margin: 0 0 4px; color: var(--text); font-size: 17px; }
+.phase h3 .hours { color: var(--amber); font-size: 13px; font-weight: 600; margin-left: 8px; }
+.phase p { margin: 6px 0; color: var(--text); }
+.phase .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chip {
+  font-size: 12px; padding: 3px 9px; border-radius: 99px;
+  background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+}
+.chip.done { color: var(--teal); border-color: var(--teal); }
+
+/* Sources */
+.sources li { margin: 10px 0; }
+.sources a { color: var(--amber); }
+.notes li { margin: 8px 0; color: var(--text); }
+.fineprint { color: var(--muted); font-size: 13px; margin-top: 20px; }
+
+footer { padding: 18px 22px 26px; color: var(--muted); font-size: 13px; text-align: center; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .detail { position: static; }
+}
